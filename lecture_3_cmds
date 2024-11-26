@@ -1,0 +1,257 @@
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ pwd
+/Users/alexwong/MDS/522/dsci522-dockerfile-practice
+(base) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ conda-lock -k explicit --file environment.yml -p linux-64
+bash: conda-lock: command not found
+(base) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ conda activate condalock
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ conda-lock -k explicit --file environment.yml -p linux-64
+Locking dependencies for ['linux-64']...
+INFO:conda_lock.conda_solver:linux-64 using specs ['pandas 2.2.2.*', 'pandera 0.20.4.*', 'python 3.11.*']
+Rendering lockfile(s) for linux-64...
+ - Install lock using : conda create --name YOURENV --file conda-linux-64.lock
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker build --tag pract1 --platform=linux/amd64
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker build --tag pract1 --platform=linux/amd64 .
+[+] Building 24.8s (7/7) FINISHED                                                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                    0.0s
+ => => transferring dockerfile: 177B                                                                                                                                    0.0s
+ => [internal] load metadata for quay.io/jupyter/minimal-notebook:afe30f0c9ad8                                                                                          2.2s
+ => [internal] load .dockerignore                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                         0.0s
+ => [internal] load build context                                                                                                                                       0.0s
+ => => transferring context: 6.26kB                                                                                                                                     0.0s
+ => [1/2] FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8@sha256:ea438114425ea79d893ec610460e636040270bdd79dba4a297a3fd8b9cd8ee9b                                   21.8s
+ => => resolve quay.io/jupyter/minimal-notebook:afe30f0c9ad8@sha256:ea438114425ea79d893ec610460e636040270bdd79dba4a297a3fd8b9cd8ee9b                                    0.0s
+ => => sha256:817fa08116c4fbe045d4ddafa3059d644665adf1e4305065dea3cd5b77f930a8 687B / 687B                                                                              0.5s
+ => => sha256:ea438114425ea79d893ec610460e636040270bdd79dba4a297a3fd8b9cd8ee9b 772B / 772B                                                                              0.0s
+ => => sha256:5a619f461f38be227d54bae4f8f2125b12a4232073031b071c7e071bacdfacd0 8.82MB / 8.82MB                                                                          1.0s
+ => => sha256:79de00b7b3ad5c25534e8c04aa05fce82999da82d8abd38a7cd13160868ecb79 5.53kB / 5.53kB                                                                          0.0s
+ => => sha256:d518c2325a3b1bacfde5669d457dd18febdfbb5168f7db83198570e92c7eda1d 14.95kB / 14.95kB                                                                        0.0s
+ => => sha256:df2fac849a4581b035132d99e203fd83dc65590ea565435a266cb0e14a508838 30.45MB / 30.45MB                                                                        1.4s
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B                                                                                0.7s
+ => => sha256:128150c49b54c57c2029e87ed69d0b371c9eff4b9a5351aa8e687dbd26e0bc17 1.91kB / 1.91kB                                                                          0.9s
+ => => sha256:91ac0ac0777923846cdb24f21a65a0ea4b7416555db58fec4e29881235c15091 4.91kB / 4.91kB                                                                          1.2s
+ => => sha256:8b71bdbde28476508d83f3b2334ce7c04a23921b9fb0970579b57ff30abc508e 150B / 150B                                                                              1.1s
+ => => sha256:db9492046f96fa1a45d8e774f1c5de8968499d72ac6a4d99f877f1927e8e4a3d 103.13MB / 103.13MB                                                                      7.3s
+ => => sha256:9d065b22d4fd2a6b7f33ee320c654feedce4ce13934acf7c0b607c81de07eaa5 276B / 276B                                                                              1.4s
+ => => sha256:2535cb554c6108e43235282da2bd1c1141d21c4203f11db896817e49cb3c147a 4.45kB / 4.45kB                                                                          2.2s
+ => => extracting sha256:df2fac849a4581b035132d99e203fd83dc65590ea565435a266cb0e14a508838                                                                               0.5s
+ => => sha256:5c14356360ee163de6424454388c4fd3bfaf6a021018d3146699e70ae1707857 180B / 180B                                                                              2.1s
+ => => extracting sha256:5a619f461f38be227d54bae4f8f2125b12a4232073031b071c7e071bacdfacd0                                                                               0.2s
+ => => sha256:15052266d740c6156ad31a84db6e49d075549934614dfbf7968d99c6c20ca7cd 30.50MB / 30.50MB                                                                       10.6s
+ => => sha256:740d7d1834a47e80b62edb14f47941e543aad899a501958dc89b6eb095aa4da5 479B / 479B                                                                              2.5s
+ => => extracting sha256:817fa08116c4fbe045d4ddafa3059d644665adf1e4305065dea3cd5b77f930a8                                                                               0.0s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1                                                                               0.0s
+ => => extracting sha256:128150c49b54c57c2029e87ed69d0b371c9eff4b9a5351aa8e687dbd26e0bc17                                                                               0.0s
+ => => extracting sha256:91ac0ac0777923846cdb24f21a65a0ea4b7416555db58fec4e29881235c15091                                                                               0.0s
+ => => extracting sha256:8b71bdbde28476508d83f3b2334ce7c04a23921b9fb0970579b57ff30abc508e                                                                               0.0s
+ => => extracting sha256:9d065b22d4fd2a6b7f33ee320c654feedce4ce13934acf7c0b607c81de07eaa5                                                                               0.0s
+ => => sha256:f8e74fc2f425ba32fe4a9e616c49803d24615585dc3403407b67cb8f32532e33 141.32MB / 141.32MB                                                                     10.9s
+ => => extracting sha256:db9492046f96fa1a45d8e774f1c5de8968499d72ac6a4d99f877f1927e8e4a3d                                                                               2.1s
+ => => sha256:d1f32e8bae0075e9687cbcf1a810ce4c74f5118663ef6d7f74c3521573d3b1b8 1.17kB / 1.17kB                                                                          8.5s
+ => => sha256:51b1aabff2bc26f101775113c54b1410b0a5dfa58f884f25981832efe83993e8 1.66kB / 1.66kB                                                                          8.9s
+ => => sha256:ed8ac62d585708b37d0296fa8086f63f9366803d20923ce3a5defa8c9f172f2e 1.67kB / 1.67kB                                                                          9.0s
+ => => sha256:76ed1d185d1a37be3cd2302ee7a259936fa6569f44080c01d51a09689802715f 178.44MB / 178.44MB                                                                     15.7s
+ => => extracting sha256:2535cb554c6108e43235282da2bd1c1141d21c4203f11db896817e49cb3c147a                                                                               0.0s
+ => => extracting sha256:5c14356360ee163de6424454388c4fd3bfaf6a021018d3146699e70ae1707857                                                                               0.0s
+ => => extracting sha256:740d7d1834a47e80b62edb14f47941e543aad899a501958dc89b6eb095aa4da5                                                                               0.0s
+ => => extracting sha256:15052266d740c6156ad31a84db6e49d075549934614dfbf7968d99c6c20ca7cd                                                                               0.5s
+ => => sha256:36cfdf66fdf20d5df94bb4be496d2f859296618d7f189cb0a919e34e01fedf55 1.46kB / 1.46kB                                                                         11.7s
+ => => sha256:c73e6b07416ac708bd54105eddf8b9e098c0e684e05df830b91275a2bfe6400a 432B / 432B                                                                             13.1s
+ => => extracting sha256:f8e74fc2f425ba32fe4a9e616c49803d24615585dc3403407b67cb8f32532e33                                                                               4.1s
+ => => sha256:e4c140d3ab3fea11aaaa219a444c15809ea435b11386aa193f7c9811d89f7217 2.78kB / 2.78kB                                                                         12.5s
+ => => extracting sha256:d1f32e8bae0075e9687cbcf1a810ce4c74f5118663ef6d7f74c3521573d3b1b8                                                                               0.0s
+ => => extracting sha256:51b1aabff2bc26f101775113c54b1410b0a5dfa58f884f25981832efe83993e8                                                                               0.0s
+ => => extracting sha256:ed8ac62d585708b37d0296fa8086f63f9366803d20923ce3a5defa8c9f172f2e                                                                               0.0s
+ => => extracting sha256:76ed1d185d1a37be3cd2302ee7a259936fa6569f44080c01d51a09689802715f                                                                               5.9s
+ => => extracting sha256:36cfdf66fdf20d5df94bb4be496d2f859296618d7f189cb0a919e34e01fedf55                                                                               0.0s
+ => => extracting sha256:c73e6b07416ac708bd54105eddf8b9e098c0e684e05df830b91275a2bfe6400a                                                                               0.0s
+ => => extracting sha256:e4c140d3ab3fea11aaaa219a444c15809ea435b11386aa193f7c9811d89f7217                                                                               0.0s
+ => [2/2] COPY conda-linux-64.lock /tmp/conda-linux-64.lock                                                                                                             0.7s
+ => exporting to image                                                                                                                                                  0.0s
+ => => exporting layers                                                                                                                                                 0.0s
+ => => writing image sha256:b98f8fe38a892f8d60585fdcd90e1e8e64c0261bfe759b173913cbe05603c6e1                                                                            0.0s
+ => => naming to docker.io/library/pract1                                                                                                                               0.0s
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview 
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker run --rm -it --platform=linux/amd64 pract1 bin/bash
+[FATAL tini (7)] exec bin/bash failed: No such file or directory
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker run --rm -it --platform=linux/amd64 pract1 /bin/bash
+(base) jovyan@899601e0e0f2:~$ mamba update --quiet --file /tmp/conda-linux-64.lock
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+(base) jovyan@899601e0e0f2:~$ python
+Python 3.11.10 | packaged by conda-forge | (main, Oct 16 2024, 01:27:36) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandera
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> exit()
+(base) jovyan@899601e0e0f2:~$ exit
+exit
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker build --tag pract2 --platform=linux/amd64 .
+[+] Building 13.0s (8/8) FINISHED                                                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                    0.0s
+ => => transferring dockerfile: 235B                                                                                                                                    0.0s
+ => [internal] load metadata for quay.io/jupyter/minimal-notebook:afe30f0c9ad8                                                                                          0.4s
+ => [internal] load .dockerignore                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                         0.0s
+ => [internal] load build context                                                                                                                                       0.0s
+ => => transferring context: 78B                                                                                                                                        0.0s
+ => [1/3] FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8@sha256:ea438114425ea79d893ec610460e636040270bdd79dba4a297a3fd8b9cd8ee9b                                    0.0s
+ => CACHED [2/3] COPY conda-linux-64.lock /tmp/conda-linux-64.lock                                                                                                      0.0s
+ => [3/3] RUN mamba update --quiet --file /tmp/conda-linux-64.lock                                                                                                     11.5s
+ => exporting to image                                                                                                                                                  1.0s 
+ => => exporting layers                                                                                                                                                 1.0s 
+ => => writing image sha256:374240ebf6e43438c6c76f9cb545591073975eb81197ecb773411f7265d5ac50                                                                            0.0s 
+ => => naming to docker.io/library/pract2                                                                                                                               0.0s
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview 
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker run --rm -it --platform=linux/amd64 pract2 /bin/bash
+(base) jovyan@f4e087590d6b:~$ python
+Python 3.11.10 | packaged by conda-forge | (main, Oct 16 2024, 01:27:36) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+(base) jovyan@f4e087590d6b:~$ mamba clean --all
+Will remove 52 (77.2 MB) tarball(s).
+Proceed ([y]/n)? y
+
+There are no index cache(s) to remove.
+Will remove 19 (15.3 MB) package(s).
+Proceed ([y]/n)? y
+
+There are no tempfile(s) to remove.
+There are no logfile(s) to remove.
+(base) jovyan@f4e087590d6b:~$ exit
+exit
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker build --tag pract3 --platform=linux/amd64 .
+[+] Building 14.5s (8/8) FINISHED                                                                                                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                    0.0s
+ => => transferring dockerfile: 270B                                                                                                                                    0.0s
+ => [internal] load metadata for quay.io/jupyter/minimal-notebook:afe30f0c9ad8                                                                                          0.5s
+ => [internal] load .dockerignore                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                         0.0s
+ => [internal] load build context                                                                                                                                       0.0s
+ => => transferring context: 78B                                                                                                                                        0.0s
+ => [1/3] FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8@sha256:ea438114425ea79d893ec610460e636040270bdd79dba4a297a3fd8b9cd8ee9b                                    0.0s
+ => CACHED [2/3] COPY conda-linux-64.lock /tmp/conda-linux-64.lock                                                                                                      0.0s
+ => [3/3] RUN mamba update --quiet --file /tmp/conda-linux-64.lock     && mamba clean --all -y -f                                                                      13.3s
+ => exporting to image                                                                                                                                                  0.6s 
+ => => exporting layers                                                                                                                                                 0.6s 
+ => => writing image sha256:86581ba094dcb865741a0ad13af4aa9cae7a0e41599e634529dd68310e6cb964                                                                            0.0s 
+ => => naming to docker.io/library/pract3                                                                                                                               0.0s 
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview 
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ fix-permissions "${CONDA_DIR}"
+bash: fix-permissions: command not found
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker run --rm -it --platform=linux/amd64 pract3 /bin/bash
+(base) jovyan@f1071c7d0dd9:~$ fix-permissions "${CONDA_DIR}"
+(base) jovyan@f1071c7d0dd9:~$ exit
+exit
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker build --tag pract4 --platform=linux/amd64 .
+[+] Building 0.5s (8/8) FINISHED                                                                                                                        docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                    0.0s
+ => => transferring dockerfile: 270B                                                                                                                                    0.0s
+ => [internal] load metadata for quay.io/jupyter/minimal-notebook:afe30f0c9ad8                                                                                          0.4s
+ => [internal] load .dockerignore                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                         0.0s
+ => [internal] load build context                                                                                                                                       0.0s
+ => => transferring context: 78B                                                                                                                                        0.0s
+ => [1/3] FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8@sha256:ea438114425ea79d893ec610460e636040270bdd79dba4a297a3fd8b9cd8ee9b                                    0.0s
+ => CACHED [2/3] COPY conda-linux-64.lock /tmp/conda-linux-64.lock                                                                                                      0.0s
+ => CACHED [3/3] RUN mamba update --quiet --file /tmp/conda-linux-64.lock     && mamba clean --all -y -f                                                                0.0s
+ => exporting to image                                                                                                                                                  0.0s
+ => => exporting layers                                                                                                                                                 0.0s
+ => => writing image sha256:86581ba094dcb865741a0ad13af4aa9cae7a0e41599e634529dd68310e6cb964                                                                            0.0s
+ => => naming to docker.io/library/pract4                                                                                                                               0.0s
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview 
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ docker run --rm -p 8888:8888 --platform=linux/amd64 pract4
+Entered start.sh with args: jupyter lab
+Running hooks in: /usr/local/bin/start-notebook.d as uid: 1000 gid: 100
+Done running hooks in: /usr/local/bin/start-notebook.d
+Running hooks in: /usr/local/bin/before-notebook.d as uid: 1000 gid: 100
+Sourcing shell script: /usr/local/bin/before-notebook.d/10activate-conda-env.sh
+Done running hooks in: /usr/local/bin/before-notebook.d
+Executing the command: jupyter lab
+[W 2024-11-25 18:44:37.221 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[W 2024-11-25 18:44:37.229 ServerApp] A `_jupyter_server_extension_points` function was not found in nbclassic. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[W 2024-11-25 18:44:37.231 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2024-11-25 18:44:37.231 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2024-11-25 18:44:37.234 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2024-11-25 18:44:37.236 ServerApp] jupyterlab | extension was successfully linked.
+[I 2024-11-25 18:44:37.237 ServerApp] nbclassic | extension was successfully linked.
+[I 2024-11-25 18:44:37.239 ServerApp] notebook | extension was successfully linked.
+[I 2024-11-25 18:44:37.240 ServerApp] Writing Jupyter server cookie secret to /home/jovyan/.local/share/jupyter/runtime/jupyter_cookie_secret
+[I 2024-11-25 18:44:37.387 ServerApp] notebook_shim | extension was successfully linked.
+[I 2024-11-25 18:44:37.407 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2024-11-25 18:44:37.409 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2024-11-25 18:44:37.409 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2024-11-25 18:44:37.411 LabApp] JupyterLab extension loaded from /opt/conda/lib/python3.11/site-packages/jupyterlab
+[I 2024-11-25 18:44:37.411 LabApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 2024-11-25 18:44:37.411 LabApp] Extension Manager is 'pypi'.
+[I 2024-11-25 18:44:37.413 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2024-11-25 18:44:37.416 ServerApp] nbclassic | extension was successfully loaded.
+[I 2024-11-25 18:44:37.417 ServerApp] notebook | extension was successfully loaded.
+[I 2024-11-25 18:44:37.418 ServerApp] Serving notebooks from local directory: /home/jovyan
+[I 2024-11-25 18:44:37.418 ServerApp] Jupyter Server 2.12.5 is running at:
+[I 2024-11-25 18:44:37.418 ServerApp] http://5617e7faee61:8888/lab?token=c18a0d09010a76d6d1a7b7db1b60a4464054cf9d410228b0
+[I 2024-11-25 18:44:37.418 ServerApp]     http://127.0.0.1:8888/lab?token=c18a0d09010a76d6d1a7b7db1b60a4464054cf9d410228b0
+[I 2024-11-25 18:44:37.418 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2024-11-25 18:44:37.421 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/jovyan/.local/share/jupyter/runtime/jpserver-7-open.html
+    Or copy and paste one of these URLs:
+        http://5617e7faee61:8888/lab?token=c18a0d09010a76d6d1a7b7db1b60a4464054cf9d410228b0
+        http://127.0.0.1:8888/lab?token=c18a0d09010a76d6d1a7b7db1b60a4464054cf9d410228b0
+[I 2024-11-25 18:44:38.112 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[I 2024-11-25 18:46:13.613 LabApp] Build is up to date
+^C[I 2024-11-25 18:48:34.868 ServerApp] Interrupted...
+
+  _   _          _      _
+ | | | |_ __  __| |__ _| |_ ___
+ | |_| | '_ \/ _` / _` |  _/ -_)
+  \___/| .__/\__,_\__,_|\__\___|
+       |_|
+                                                                           
+Read the migration plan to Notebook 7 to learn about the new features and the actions to take if you are using extensions.
+
+https://jupyter-notebook.readthedocs.io/en/latest/migrate_to_notebook7.html
+
+Please note that updating to Notebook 7 might break some of your extensions.
+
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ git add .
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ git commit -m 'set up docker'
+[main (root-commit) 8edc1d4] set up docker
+ 3 files changed, 71 insertions(+)
+ create mode 100644 Dockerfile
+ create mode 100644 conda-linux-64.lock
+ create mode 100644 environment.yml
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 2.64 KiB | 2.64 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:awlh18/dsci522-dockerfile-practice.git
+ * [new branch]      main -> main
+(condalock) dhcp-128-189-150-129:dsci522-dockerfile-practice alexwong$ 

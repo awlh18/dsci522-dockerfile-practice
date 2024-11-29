@@ -1,5 +1,5 @@
   services:
-  analysis-env:
+  jupyter-notebook:
     image: awong18/dsci522-dockerfile-practice:a0ad997
     ports:
       - "8888:8888"

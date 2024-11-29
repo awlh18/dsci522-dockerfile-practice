@@ -1,0 +1,12 @@
+  services:
+  analysis-env:
+    image: awong18/dsci522-dockerfile-practice:a0ad997
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/Users/alexwong/MDS/522/dsci522-dockerfile-practice
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64

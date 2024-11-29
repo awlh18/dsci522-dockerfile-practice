@@ -4,7 +4,7 @@
     ports:
       - "8888:8888"
     volumes:
-      - .:/Users/alexwong/MDS/522/dsci522-dockerfile-practice
+      - .:/alexwong/MDS/522/dsci522-dockerfile-practice
     deploy:
       resources:
         limits:
